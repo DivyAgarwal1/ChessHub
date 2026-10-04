@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChessHub – Login</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="auth.css" />
+</head>
+<body>
+    <div class="auth-container">
+
+        <!-- Logo -->
+        <div class="auth-logo">
+            <div class="chess-icon">
+                <img src="images/logo.png" width="48" height="48" alt="ChessHub Logo" style="display: block; margin: 0 auto;">
+            </div>
+            <h1>ChessHub</h1>
+            <p>Sign in to track your ELO and challenge the world</p>
+        </div>
+
+        <!-- Card -->
+        <div class="auth-card">
+
+            <!-- Tabs -->
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login">Login</button>
+                <button class="auth-tab"        data-tab="signup">Sign Up</button>
+            </div>
+
+            <div class="auth-form-wrapper">
+
+                <!-- Login Form -->
+                <form class="auth-form active" id="login-form" novalidate>
+                    <div class="form-group">
+                        <label for="login-username">Username</label>
+                        <input type="text" id="login-username" placeholder="Enter your username"
+                               autocomplete="username" spellcheck="false" />
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" placeholder="Enter your password"
+                               autocomplete="current-password" />
+                    </div>
+                    <div class="auth-message" id="login-msg"></div>
+                    <button type="submit" class="auth-btn" id="login-submit">Login →</button>
+                </form>
+
+                <!-- Sign Up Form -->
+                <form class="auth-form" id="signup-form" novalidate>
+                    <div class="form-group">
+                        <label for="signup-username">Username</label>
+                        <input type="text" id="signup-username" placeholder="Choose a username"
+                               autocomplete="username" spellcheck="false" />
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-password">Password</label>
+                        <input type="password" id="signup-password" placeholder="Create a strong password"
+                               autocomplete="new-password" />
+                    </div>
+                    <div class="auth-message" id="signup-msg"></div>
+                    <button type="submit" class="auth-btn" id="signup-submit">Create Account →</button>
+                </form>
+
+            </div>
+        </div>
+
+        <p class="auth-footer">ChessHub &nbsp;·&nbsp; Vanilla JS + Node.js + Socket.IO</p>
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html>

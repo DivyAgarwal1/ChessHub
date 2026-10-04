@@ -1,0 +1,26 @@
+{
+  "name": "chess-version-2",
+  "version": "1.0.0",
+  "description": "A fully playable chess game built with **vanilla JavaScript** — no frameworks, no libraries. Features a custom AI opponent powered by the **Minimax algorithm with Alpha-Beta Pruning**.",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "chess.js": "^1.4.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.9.4",
+    "nodemon": "^3.1.14",
+    "socket.io": "^4.8.3"
+  }
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChessHub</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Socket.IO -->
+    <script src="/socket.io/socket.io.js"></script>
+
+    <!-- ChessHub (ES module) -->
+    <script type="module" src="./game.js"></script>
+</head>
+<body>
+
+    <!-- ── Game Header ──────────────────────────────────────────────────── -->
+    <header class="game-header">
+        <a href="/mode.html" class="game-logo" title="Change Mode">
+            <img src="images/logo.png" width="28" height="28" alt="Logo">
+            ChessHub
+        </a>
+        <div class="mode-indicator" id="mode-label">Loading…</div>
+        <div class="game-user-badge">
+            <div class="game-avatar" id="game-avatar">?</div>
+            <div class="game-user-text">
+                <span class="game-username" id="game-username">—</span>
+                <span class="game-elo"      id="game-elo">ELO: —</span>
+            </div>
+            <button class="game-logout-btn" id="game-logout-btn">Logout</button>
+        </div>
+    </header>
+
+    <!-- ── Control Bar ──────────────────────────────────────────────────── -->
+    <div id="ui-controls">
+        <button id="btn-new"    class="ctrl-btn" title="New Game">&#x21BA; New</button>
+        <button id="btn-undo"   class="ctrl-btn" title="Undo Last Move">&#x21A9; Undo</button>
+        <button id="btn-flip"   class="ctrl-btn" title="Flip Board">&#x21C5; Flip</button>
+        <button id="btn-sound"  class="ctrl-btn" title="Toggle Sound">&#x1F50A; Sound</button>
+        <div class="ctrl-divider"></div>
+        <button id="btn-resign" class="ctrl-btn danger" title="Resign">&#x2691; Resign</button>
+    </div>
+
+
+
+    <!-- ── Board + Sidebar ──────────────────────────────────────────────── -->
+    <div class="game-wrapper">
+        <div class="main-container"></div>
+
+        <div class="dashboard-panel">
+            <div class="clocks-container">
+                <div class="clock-card white-player">
+                    <div class="player-info-header">
+                        <span class="player-name" id="white-player-name">WHITE</span>
+                        <div class="player-stats-row">
+                            <span id="white-matches-played">Played: 0</span>
+                            <span id="white-matches-won">Won: 0</span>
+                        </div>
+                    </div>
+                    <span id="white-clock" class="timer">10:00</span>
+                </div>
+                <div class="clock-card black-player">
+                    <div class="player-info-header">
+                        <span class="player-name" id="black-player-name">BLACK</span>
+                        <div class="player-stats-row">
+                            <span id="black-matches-played">Played: 0</span>
+                            <span id="black-matches-won">Won: 0</span>
+                        </div>
+                    </div>
+                    <span id="black-clock" class="timer">10:00</span>
+                </div>
+            </div>
+
+            <div class="move-log-card">
+                <h3>Move History</h3>
+                <div id="move-list" class="moves-container"></div>
+            </div>
+
+            <div id="turn-indicator">Turn: WHITE</div>
+        </div>
+    </div>
+
+</body>
+</html>

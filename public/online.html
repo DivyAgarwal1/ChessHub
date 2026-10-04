@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChessHub – Online Multiplayer Lobby</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="mode.css" />
+    <link rel="stylesheet" href="online.css" />
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+
+    <!-- Sticky Header -->
+    <header class="mode-header">
+        <a href="/mode.html" class="logo">
+            <span class="logo-icon">
+                <img src="images/logo.png" width="32" height="32" alt="Logo">
+            </span>
+            <span>ChessHub</span>
+        </a>
+        <div class="user-badge">
+            <a href="/mode.html" class="back-modes-btn">← Back to Modes</a>
+            <div class="user-info-pill">
+                <div class="avatar" id="user-avatar">?</div>
+                <div class="user-details">
+                    <span class="username" id="display-username">Loading…</span>
+                    <span class="elo"      id="display-elo">ELO: —</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="online-content">
+        <h2>Online Multiplayer</h2>
+        <p class="subtitle">Create a private game room or join an existing one</p>
+
+        <div class="lobby-grid">
+            
+            <!-- Create Room Card -->
+            <div class="lobby-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line></svg>
+                    </div>
+                    <h3>Host a Game</h3>
+                </div>
+                <p class="card-desc">Generate a secure room code and send it to your opponent to begin.</p>
+                <div class="card-body">
+                    <button class="action-btn primary" id="btn-create-room">Create New Room</button>
+
+                    <div class="code-box" id="code-box" style="display: none;">
+                        <span class="code-label">YOUR ROOM CODE</span>
+                        <div class="code-display-row">
+                            <span class="code-val" id="room-code-display">------</span>
+                            <button class="copy-btn" id="btn-copy-code" title="Copy Code">📋 Copy</button>
+                        </div>
+                    </div>
+
+                    <div class="status-box waiting" id="create-status" style="display: none;">
+                        <div class="spinner"></div>
+                        <span id="create-status-text">Waiting for the other player to join...</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Join Room Card -->
+            <div class="lobby-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6z"></path><path d="M14 3v5h5M16 13H8M16 17H8M10 9H8"></path></svg>
+                    </div>
+                    <h3>Join a Room</h3>
+                </div>
+                <p class="card-desc">Enter the 6-character room code provided by your host.</p>
+
+                <div class="card-body">
+                    <div class="input-group">
+                        <input type="text" id="join-code-input" placeholder="ENTER ROOM CODE" maxlength="6" />
+                        <button class="action-btn secondary" id="btn-join-room">Join Room</button>
+                    </div>
+
+                    <div class="status-box error" id="join-status" style="display: none;">
+                        <span id="join-status-text"></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="online.js"></script>
+</body>
+</html>

@@ -1,0 +1,451 @@
+body {
+    background-color: #302e2b;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    color: #fff;
+}
+
+/* ── Game Header ─────────────────────────────────────────────────────────────── */
+.game-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 32px;
+    background: #262421;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+.game-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+}
+
+.game-logo span {
+    font-size: 1.5rem;
+    color: #81b64c;
+}
+
+.mode-indicator {
+    background: #312e2b;
+    color: #bababa;
+    border-radius: 4px;
+    padding: 6px 16px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.game-user-badge {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.game-avatar {
+    width: 32px;
+    height: 32px;
+    background-color: #81b64c;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: white;
+}
+
+.game-user-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.3;
+}
+
+.game-username {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #fff;
+}
+
+.game-elo {
+    font-size: 0.75rem;
+    color: #bababa;
+}
+
+.game-logout-btn {
+    padding: 7px 16px;
+    background: #3c3a37;
+    border: none;
+    color: #bababa;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.game-logout-btn:hover {
+    background: #4a4845;
+    color: #fff;
+}
+
+/* ── Online Multiplayer Controls ─────────────────────────────────────────────── */
+#online-controls {
+    display: none;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 14px 24px;
+    background: #262421;
+    border-bottom: 1px solid rgba(0,0,0,0.4);
+    box-sizing: border-box;
+    width: 100%;
+}
+
+#online-controls button {
+    padding: 10px 18px;
+    cursor: pointer;
+    background: #3c3a37;
+    color: #bababa;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+#online-controls button:hover {
+    background: #4a4845;
+    color: #fff;
+}
+
+#online-controls input {
+    padding: 10px 16px;
+    background: #302e2b;
+    color: #fff;
+    border: 1px solid #4a4845;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+#online-controls input:focus {
+    border-color: #81b64c;
+}
+
+#room-status {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #81b64c;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+}
+
+/* ── UI Controls ─────────────────────────────────────────────────────────────── */
+#ui-controls {
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    background: #262421;
+    padding: 8px 12px;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.ctrl-divider {
+    width: 1px;
+    background: #4a4845;
+    margin: 4px 6px;
+    height: 24px;
+}
+
+.ctrl-btn {
+    padding: 8px 16px;
+    cursor: pointer;
+    background: transparent;
+    color: #bababa;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.ctrl-btn:hover {
+    background: #3c3a37;
+    color: #fff;
+}
+
+.ctrl-btn.danger {
+    color: #c88;
+}
+
+.ctrl-btn.danger:hover {
+    background: #3c3a37;
+    color: #f99;
+}
+
+.ctrl-btn.sound-off {
+    opacity: 0.45;
+    text-decoration: line-through;
+}
+
+/* Dropdown mode selector */
+.mode-select {
+    padding: 10px 16px;
+    background: #302e2b;
+    color: #fff;
+    border: 1px solid #4a4845;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    padding-right: 36px;
+}
+
+.mode-select:hover, .mode-select:focus {
+    border-color: #81b64c;
+}
+
+/* New Game button that appears after game over */
+.mode-btn {
+    padding: 10px 24px;
+    cursor: pointer;
+    background-color: #81b64c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.2);
+}
+.mode-btn:hover {
+    background-color: #92c55b;
+}
+
+/* ── Game Layout ─────────────────────────────────────────────────────────────── */
+.game-wrapper {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    justify-content: center;
+    max-width: 950px;
+    width: 100%;
+    padding: 0 24px 60px;
+}
+
+/* --- THE CHESSBOARD --- */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    height: 560px;
+    width: 560px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    border: 4px solid #262421;
+    flex-shrink: 0;
+}
+
+.rank-style { width: 560px; height: 70px; display: flex; }
+
+.square-common {
+    width: 70px; height: 70px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; user-select: none;
+}
+
+/* Classic Board Colors */
+.color-dark { background-color: #769656; }
+.color-light { background-color: #EEEED2; }
+
+.highlight { background-color: rgba(247, 247, 105, 0.5) !important; }
+
+img { width: 88%; height: 88%; pointer-events: none; z-index: 6; }
+
+/* Flipped board */
+.main-container.flipped { transform: rotate(180deg); }
+.main-container.flipped .square-common { transform: rotate(180deg); }
+
+/* Indicators */
+.circle {
+    width: 24px; height: 24px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 50%; pointer-events: none;
+    position: absolute; z-index: 10;
+}
+
+.capture-ring {
+    width: 64px; height: 64px;
+    border: 5px solid rgba(213, 53, 53, 0.85);
+    border-radius: 50%;
+    position: absolute;
+    z-index: 10;
+    pointer-events: none;
+    box-sizing: border-box;
+}
+
+.castle-indicator {
+    width: 22px; height: 22px;
+    border: 3px solid rgba(100, 170, 255, 0.7);
+    border-radius: 4px;
+    position: absolute;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* --- MODERN SIDE PANEL --- */
+.dashboard-panel {
+    width: 320px;
+    height: 560px;
+    background: #262421;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.clocks-container {
+    display: flex;
+    gap: 12px;
+}
+
+.clock-card {
+    flex: 1;
+    background: #302e2b;
+    border-radius: 6px;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.clock-card.white-player { border-top: 4px solid #fff; }
+.clock-card.black-player { border-top: 4px solid #000; }
+
+.player-info-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 6px;
+}
+
+.player-name {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.player-stats-row {
+    display: flex;
+    gap: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #8b8986;
+    margin-top: 4px;
+}
+
+.clock-card .timer {
+    font-size: 1.6rem;
+    font-family: monospace;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* Move Log Module */
+.move-log-card {
+    flex: 1;
+    background: #302e2b;
+    border-radius: 6px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.move-log-card h3 {
+    margin: 0 0 12px 0;
+    color: #8b8986;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.moves-container {
+    flex: 1;
+    overflow-y: auto;
+    font-family: monospace;
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-right: 4px;
+}
+
+.moves-container::-webkit-scrollbar { width: 6px; }
+.moves-container::-webkit-scrollbar-track { background: transparent; }
+.moves-container::-webkit-scrollbar-thumb { background: #4a4845; border-radius: 3px; }
+.moves-container::-webkit-scrollbar-thumb:hover { background: #5c5a57; }
+
+.move-line {
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: 32px 1fr 1fr;
+    align-items: center;
+    gap: 8px;
+}
+
+.move-line:nth-child(even) {
+    background: #363431;
+}
+
+.move-num {
+    color: #8b8986;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-align: right;
+}
+
+.san-token {
+    padding: 2px 6px;
+    border-radius: 2px;
+    color: #fff;
+}
+
+/* Dynamic Turn Announcement Strip */
+#turn-indicator {
+    background: #3c3a37;
+    color: #fff;
+    text-align: center;
+    padding: 12px;
+    font-weight: 700;
+    border-radius: 6px;
+    font-size: 0.95rem;
+}
+
+#turn-indicator.ai-thinking {
+    background: #3f4e34 !important;
+    color: #92c55b !important;
+}

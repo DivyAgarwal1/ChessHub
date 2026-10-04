@@ -1,0 +1,215 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-color: #f3f4f6;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1f2937;
+}
+
+/* ── Header ── */
+.mode-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 32px;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #111827;
+    text-decoration: none;
+}
+
+.logo .logo-icon {
+    display: flex;
+    align-items: center;
+}
+
+.user-badge {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.user-info-pill {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 50px;
+    padding: 6px 16px 6px 8px;
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    background-color: #2563eb;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: white;
+    flex-shrink: 0;
+}
+
+.user-details .username {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #111827;
+    line-height: 1.3;
+    display: block;
+}
+
+.user-details .elo {
+    font-size: 0.75rem;
+    color: #6b7280;
+    display: block;
+}
+
+.logout-btn {
+    padding: 8px 16px;
+    background: #f3f4f6;
+    border: 1px solid #d1d5db;
+    color: #4b5563;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background 0.15s ease;
+}
+
+.logout-btn:hover {
+    background: #e5e7eb;
+    color: #111827;
+}
+
+/* ── Main content ── */
+.mode-content {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 60px 32px 80px;
+}
+
+.mode-content h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: #6b7280;
+    font-size: 1.05rem;
+    margin-bottom: 40px;
+}
+
+/* ── Card grid ── */
+.modes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.mode-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 24px;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.mode-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border-color: #d1d5db;
+}
+
+.mode-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: #eff6ff;
+    color: #2563eb;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.mode-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+.mode-desc {
+    font-size: 0.95rem;
+    color: #6b7280;
+    line-height: 1.5;
+    flex: 1;
+}
+
+/* ── Difficulty badges ── */
+.difficulty-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    width: fit-content;
+    text-transform: uppercase;
+    background: #f3f4f6;
+    color: #4b5563;
+}
+
+.mode-card[data-mode="ai-1"] .difficulty-badge { background: #dcfce3; color: #15803d; }
+.mode-card[data-mode="ai-2"] .difficulty-badge { background: #fef08a; color: #a16207; }
+.mode-card[data-mode="ai-3"] .difficulty-badge { background: #fed7aa; color: #c2410c; }
+.mode-card[data-mode="ai-4"] .difficulty-badge { background: #fee2e2; color: #b91c1c; }
+
+/* ── Play button row ── */
+.play-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 12px;
+    padding: 12px;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    color: #4b5563;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: all 0.1s ease;
+}
+
+.mode-card:hover .play-btn {
+    background: #2563eb;
+    border-color: #2563eb;
+    color: #fff;
+}
+
+@media (max-width: 640px) {
+    .mode-header { padding: 14px 16px; }
+    .mode-content { padding: 32px 20px 48px; }
+    .mode-content h2 { font-size: 1.8rem; }
+    .modes-grid { grid-template-columns: 1fr; }
+}
