@@ -2,6 +2,7 @@ services:
   - type: web
     name: chesshub
     env: node
+    plan: free
     buildCommand: npm install
     startCommand: npm start
     envVars:
