@@ -6,6 +6,12 @@ A fully playable, full-stack chess platform built with **Vanilla JavaScript, Nod
 
 ---
 
+## 🚀 Live Demo
+
+**[▶ Play the live game here](https://chesshub-kigw.onrender.com/)**
+
+---
+
 ## ✨ Features
 
 - **Real-Time Online Multiplayer** — Play against friends in real-time across the internet using Socket.IO.
