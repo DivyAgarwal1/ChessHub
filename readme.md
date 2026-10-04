@@ -4,8 +4,6 @@ A fully playable, full-stack chess platform built with **Vanilla JavaScript, Nod
 
 **ChessHub** features real-time online multiplayer, secure JWT authentication, and a robust ELO ranking system.
 
-![ChessHub Preview](./public/images/preview.png)
-
 ---
 
 ## 🚀 Live Demo
