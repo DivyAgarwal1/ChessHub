@@ -275,7 +275,7 @@ body {
 
 .highlight { background-color: rgba(247, 247, 105, 0.5) !important; }
 
-.tile img { width: 88%; height: 88%; pointer-events: none; z-index: 6; }
+.square-common img { width: 88%; height: 88%; pointer-events: none; z-index: 6; }
 
 /* Flipped board */
 .main-container.flipped { transform: rotate(180deg); }
